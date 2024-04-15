@@ -11,4 +11,5 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends JpaRepository<User,Integer> {
     UserDetails findByEmail(String username);
     User findByRole(Role role);
+    User findByVerificationToken(String verificationToken);
 }
