@@ -1,5 +1,7 @@
 package org.carrerboost.carrerboost.entity;
 
+
+
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -19,10 +21,11 @@ public class Gestionidee implements Serializable {
 
     private String title;
 
-
+    //vid
     private String description;
     private String motcle;
-   // @ManyToOne
-   // private Utilisateur utilisateur;
+    // @ManyToOne
+    // private Utilisateur utilisateur;
 
 }
+

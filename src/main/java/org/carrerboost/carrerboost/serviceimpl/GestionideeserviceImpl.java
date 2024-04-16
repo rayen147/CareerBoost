@@ -2,7 +2,6 @@ package org.carrerboost.carrerboost.serviceimpl;
 
 import lombok.AllArgsConstructor;
 import org.carrerboost.carrerboost.entity.Gestionidee;
-import org.carrerboost.carrerboost.entity.Note;
 import org.carrerboost.carrerboost.repository.GestionideeRepository;
 import org.carrerboost.carrerboost.serviceinterface.IGestionideeService;
 import org.springframework.stereotype.Service;

@@ -1,10 +1,7 @@
 package org.carrerboost.carrerboost.serviceinterface;
 
-import org.carrerboost.carrerboost.entity.Gestionidee;
-import org.carrerboost.carrerboost.entity.Note;
-import org.carrerboost.carrerboost.entity.RendezVous;
-import org.springframework.stereotype.Service;
 
+import org.carrerboost.carrerboost.entity.Gestionidee;
 
 import java.util.List;
 
