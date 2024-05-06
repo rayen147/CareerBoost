@@ -5,5 +5,8 @@ public enum Role {
     Investor,
     ADMIN,
 
+    Former,
+
+
 
 }

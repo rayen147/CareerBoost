@@ -1,7 +1,11 @@
 package com.example.CareerBoost.ServiceInterface;
 
-import org.springframework.security.core.userdetails.UserDetailsService;
+
+import com.example.CareerBoost.Entity.User;
+
+import java.util.List;
 
 public interface UserService {
-    UserDetailsService userDetailsService();
+   /* UserDetailsService userDetailsService();*/
+   List<User> retrieveAllusers();
 }

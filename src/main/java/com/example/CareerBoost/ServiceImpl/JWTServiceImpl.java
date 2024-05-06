@@ -1,24 +1,10 @@
 package com.example.CareerBoost.ServiceImpl;
 
-import com.example.CareerBoost.Entity.User;
-import com.example.CareerBoost.ServiceInterface.JWTService;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Service;
-
-import java.security.Key;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.function.Function;
+/*
 @Service
 
 public class JWTServiceImpl implements JWTService {
-    private static final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+   private static final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
     public String generateToken(UserDetails userDetails) {
         if (userDetails instanceof User) {
             User user = (User) userDetails;
@@ -78,3 +64,4 @@ public class JWTServiceImpl implements JWTService {
         return extractClaim(token,Claims::getExpiration).before(new Date());
     }
 }
+*/

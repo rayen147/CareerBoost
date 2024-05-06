@@ -17,7 +17,7 @@ public class SignUpRequest {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        if(role == Role.Investor || role ==Role.Student)
+        if(role == Role.Investor || role ==Role.Student ||role ==Role.Former)
         {
             this.role = role;
 
