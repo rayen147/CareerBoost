@@ -3,8 +3,12 @@ package com.example.CareerBoost.Config;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
+<<<<<<< HEAD
 //import org.springdoc.core.models.GroupedOpenApi;
 import org.springdoc.core.GroupedOpenApi;
+=======
+import org.springdoc.core.models.GroupedOpenApi;
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -30,6 +34,7 @@ public class config implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/pdfs/**")
+<<<<<<< HEAD
                 .addResourceLocations("C:/Users/kbaie/IdeaProjects/CareerBoost-master - Copie/src/main/resources/pdfs/");
     }
   /* @Override
@@ -38,6 +43,10 @@ public class config implements WebMvcConfigurer {
                .addResourceLocations("classpath:/pdfs/");
    }*/
 
+=======
+                .addResourceLocations("C:/Users/kbaie/IdeaProjects/CareerBoost/src/main/resources/pdfs/");
+    }
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
     @Bean
     public OpenAPI springShopOpenAPI() {
         return new OpenAPI()
@@ -75,7 +84,10 @@ public class config implements WebMvcConfigurer {
                 .pathsToMatch("/formation/**")
                 .pathsToExclude("**")
                 .build();}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
     @Bean
     public MethodValidationPostProcessor methodValidationPostProcessor() {
         return new MethodValidationPostProcessor();

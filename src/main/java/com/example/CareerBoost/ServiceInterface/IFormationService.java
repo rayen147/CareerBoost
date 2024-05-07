@@ -8,7 +8,11 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface IFormationService {
+<<<<<<< HEAD
     List<Formation> retrieveAllFormations(Sort titre);
+=======
+    List<Formation> retrieveAllFormations(Sort id);
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
     List<Formation> retrieveAllFormations();
     Formation addFormation(Formation formation );
     Formation updateFormation (Formation formation);

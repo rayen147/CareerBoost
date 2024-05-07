@@ -1,12 +1,17 @@
 package com.example.CareerBoost.Controller;
 
 
+<<<<<<< HEAD
+=======
+import com.example.CareerBoost.Entity.Certificat;
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
 import com.example.CareerBoost.Entity.Formation;
 import com.example.CareerBoost.Entity.ModuleFormation;
 import com.example.CareerBoost.ServiceInterface.ICertificatService;
 import com.example.CareerBoost.ServiceInterface.IFormationService;
 import com.example.CareerBoost.ServiceInterface.IModuleFormationService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+<<<<<<< HEAD
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
@@ -17,6 +22,18 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+=======
+import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,11 +55,30 @@ public class ModuleFormationController {
         return imoduleFormationService.retrieveAllModuleFormations();
     }
 
+<<<<<<< HEAD
     @GetMapping("/retrieveAllModuleFormationsSortedByTitle")
     public List<ModuleFormation> retrieveAllModuleFormations(Sort titre) {
         return imoduleFormationService.retrieveAllModuleFormations(titre);
     }
 
+=======
+
+
+    @GetMapping("/addModuleFormation")
+    public String showAddModuleFormationForm(Model model) {
+        ModuleFormation moduleFormation = new ModuleFormation();
+        List<Formation> allFormations = iformationService.retrieveAllFormations();
+        List<Certificat> allCertificats = icertificat.retrieveAllCertificat();
+
+        model.addAttribute("moduleformation", moduleFormation); // Ajout de l'objet ModuleFormation au modèle
+        model.addAttribute("allFormations", allFormations);
+        model.addAttribute("allCertificats", allCertificats);
+
+        return "moduleformation/addModuleFormation"; // Retourner le nom du fichier HTML
+    }
+
+
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
     @PostMapping("/addModuleFormation")
     @ResponseBody
     public Map<String, Object> addMFormation(@Valid @RequestBody ModuleFormation mformation, BindingResult result) {
@@ -70,6 +106,7 @@ public class ModuleFormationController {
         return response;
     }
 
+<<<<<<< HEAD
     @PostMapping("/addModuleFormationn")
     @ResponseBody
     public Map<String, Object> addMFormationn(@Valid @RequestBody ModuleFormation mformation, BindingResult result, @RequestParam Long formationId) {
@@ -116,6 +153,40 @@ public class ModuleFormationController {
 
 //postman
  /*   @PutMapping("/updateModuleFormation")
+=======
+
+    @GetMapping("/updateModuleFormation/{id}")
+    public String getUpdateModuleFormation(@PathVariable Long id, Model model) {
+        ModuleFormation moduleformation = imoduleFormationService.retrieveMFormation(id);
+        if (moduleformation == null) {
+            // Gérer le cas où la formation n'est pas trouvée
+            return "redirect:/moduleformation/retrieveallModuleFormation";
+        }
+        model.addAttribute("moduleformation", moduleformation);
+        return "moduleformation/updateModuleFormation";
+    }
+
+    @PostMapping("/updateModuleFormation/{id}")
+    public String postUpdateModuleFormation(@PathVariable Long id, @Valid @ModelAttribute("moduleFormation") ModuleFormation moduleFormation, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+
+            return "moduleformation/updateModuleFormation";
+        }
+
+        // Mettez à jour la formation
+        ModuleFormation updatedModuleFormation = imoduleFormationService.updateMFormation(moduleFormation);
+        if (updatedModuleFormation != null) {
+            return "redirect:/moduleformation/retrieveallModuleFormation";
+        } else {
+            // Gérer l'échec de la mise à jour de la formation ici, peut-être en affichant un message d'erreur à l'utilisateur
+            return "redirect:/moduleformation/retrieveModuleFormation/" + id;
+        }
+    }
+
+
+//postman
+    @PutMapping("/updateModuleFormation")
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
     @ResponseBody
     public Map<String, Object> updateMFormation(@Valid @RequestBody ModuleFormation mformation, BindingResult result) {
         Map<String, Object> response = new HashMap<>();
@@ -142,6 +213,7 @@ public class ModuleFormationController {
         return response;
     }
 
+<<<<<<< HEAD
 */
 @PutMapping("/updateModuleFormation/{id}")
 public ResponseEntity<Map<String, Object>> updateMFormation(@PathVariable Long id, @Valid @RequestBody ModuleFormation mformation, BindingResult result) {
@@ -191,6 +263,35 @@ public ResponseEntity<Map<String, Object>> updateMFormation(@PathVariable Long i
 
 
 
+=======
+
+    @GetMapping("/retrieveModuleFormation/{id}")
+    public ModuleFormation retrieveMFormation(Long id) {
+        return imoduleFormationService.retrieveMFormation(id);
+    }
+
+    @GetMapping("/deleteModuleFormation/{id}")
+    public String getDeleteModuleFormation(@PathVariable Long id, Model model) {
+        ModuleFormation moduleFormation = imoduleFormationService.retrieveMFormation(id);
+        if (moduleFormation == null) {
+            // Gérer le cas où la formation n'est pas trouvée
+            return "redirect:/moduleFormation/retrieveallModuleFormation";
+        }
+        model.addAttribute("moduleFormation", moduleFormation); // Ajout de l'objet moduleFormation au modèle
+        return "moduleformation/deleteModuleFormation";
+    }
+
+    @PostMapping("/deleteModuleFormation/{id}")
+    public String deleteModuleFormation(@PathVariable Long id) {
+        // Supprimer les certificats associés à ce moduleFormation
+        icertificat.removeCertificat(id);
+
+        // Ensuite, supprimer le moduleFormation
+        imoduleFormationService.removeModuleFormation(id);
+        // Retourner le nom du modèle de succès de suppression
+        return "moduleformation/moduleformation deleted successfully";
+    }
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
     @DeleteMapping("/deleteModuleFormation/{id}")
     public ResponseEntity<String> removeModuleFormation(@PathVariable("id") Long id) {
         try {
@@ -203,6 +304,7 @@ public ResponseEntity<Map<String, Object>> updateMFormation(@PathVariable Long i
 
 
     @GetMapping("/searchModuleFormationsBytitre/{titre}")
+<<<<<<< HEAD
     public List<ModuleFormation> searchModuleFormationsBytitre(@PathVariable String titre) {
         return imoduleFormationService.searchModuleFormationsBytitre(titre);
     }
@@ -243,4 +345,9 @@ public ResponseEntity<Map<String, Object>> updateMFormation(@PathVariable Long i
        return moduleFormationsWithFormation;
    }
 
+=======
+    public List<ModuleFormation> searchModuleFormationsBytitre(String titre) {
+        return imoduleFormationService.searchModuleFormationsBytitre(titre);
+    }
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
 }

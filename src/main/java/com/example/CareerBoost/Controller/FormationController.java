@@ -2,24 +2,38 @@ package com.example.CareerBoost.Controller;
 
 
 import com.example.CareerBoost.Entity.Formation;
+<<<<<<< HEAD
 import com.example.CareerBoost.Entity.ModuleFormation;
 import com.example.CareerBoost.Entity.User;
+=======
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
 import com.example.CareerBoost.ServiceInterface.ICertificatService;
 import com.example.CareerBoost.ServiceInterface.IFormationService;
 import com.example.CareerBoost.ServiceInterface.IModuleFormationService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+<<<<<<< HEAD
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
+=======
+import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
+<<<<<<< HEAD
 
 import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.Collections;
+=======
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+import java.time.LocalDate;
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,10 +57,13 @@ public class FormationController {
     public List<Formation> retrieveAllFormations() {
         return iformationService.retrieveAllFormations();
     }
+<<<<<<< HEAD
     @GetMapping("/retrieveAllFormationsSortedByTitle")
     public List<Formation> retrieveAllFormationsSortedByTitle() {
         return iformationService.retrieveAllFormations(Sort.by("titre"));
     }
+=======
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
 
     //postman
     @PostMapping("/addFormation")
@@ -121,7 +138,11 @@ public class FormationController {
 
 
     @GetMapping("/searchFormationsByTitle/{titre}")
+<<<<<<< HEAD
     public List<Formation> searchFormationsBytitre(@PathVariable String titre) {
+=======
+    public List<Formation> searchFormationsBytitre(String titre) {
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
         return iformationService.searchFormationsBytitre(titre);
     }
 
@@ -131,6 +152,7 @@ public class FormationController {
         return iformationService.findBydateDebut(dateDebut);
     }
 
+<<<<<<< HEAD
     @GetMapping("/formation/{formationId}/modules")
     public List<ModuleFormation> getModulesByFormationId(@PathVariable Long formationId) {
         Formation formation = iformationService.retrieveFormation(formationId);
@@ -193,5 +215,7 @@ public class FormationController {
            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Une erreur s'est produite lors de la participation à la formation");
        }
    }
+=======
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
 
 }

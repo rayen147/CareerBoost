@@ -1,7 +1,11 @@
 package com.example.CareerBoost.Controller;
 
 import com.itextpdf.io.IOException;
+<<<<<<< HEAD
 import org.springframework.core.io.FileSystemResource;
+=======
+import org.springframework.core.io.ClassPathResource;
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -18,7 +22,11 @@ import java.nio.file.Files;
 @RequestMapping("/pdfs")
 public class PdfController {
 
+<<<<<<< HEAD
   /*  @GetMapping("/{filename:.+}")
+=======
+    @GetMapping("/{filename:.+}")
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
     public ResponseEntity<byte[]> getPdf(@PathVariable String filename) throws IOException, java.io.IOException {
         Resource resource = new ClassPathResource("pdfs/" + filename);
         byte[] data = Files.readAllBytes(resource.getFile().toPath());
@@ -29,6 +37,7 @@ public class PdfController {
         headers.setContentLength(data.length);
 
         return new ResponseEntity<>(data, headers, HttpStatus.OK);
+<<<<<<< HEAD
     }*/
   @GetMapping("/{filename:.+}")
   public ResponseEntity<byte[]> getPdf(@PathVariable String filename) throws IOException, java.io.IOException {
@@ -53,4 +62,7 @@ public class PdfController {
       return new ResponseEntity<>(data, headers, HttpStatus.OK);
   }
 
+=======
+    }
+>>>>>>> 9f19f141b8cba6f5c5dbb32e8f434427b77d0e15
 }
