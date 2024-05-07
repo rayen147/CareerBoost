@@ -1,14 +1,8 @@
 package com.example.CareerBoost.Controller;
 
-import com.example.CareerBoost.Dto.JwtAuthenticationResponse;
-import com.example.CareerBoost.Dto.LoginRequest;
-import com.example.CareerBoost.Dto.SignUpRequest;
-import com.example.CareerBoost.Entity.User;
+import com.example.CareerBoost.Repository.UserRepository;
 import com.example.CareerBoost.ServiceInterface.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,10 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthenticationController {
     @Autowired
     private AuthenticationService authenticationService;
-
+    @Autowired
+    private UserRepository userRepository;
+/*
     @PostMapping("/signup")
-    public ResponseEntity<User> sighup(@RequestBody SignUpRequest signUpRequest)
-    {
+    public ResponseEntity<User> sighup(@RequestBody SignUpRequest signUpRequest) throws CarrerBoostException {
         return ResponseEntity.ok(authenticationService.signup(signUpRequest));
 
     }
@@ -32,4 +27,17 @@ public class AuthenticationController {
         return ResponseEntity.ok(authenticationService.signIn(loginRequest));
 
     }
+    @GetMapping("/verify-email")
+    public String verifyEmail(@RequestParam("token") String verificationToken) {
+        User user = userRepository.findByVerificationToken(verificationToken);
+        if (user != null) {
+
+            user.setVerificationToken(null);
+            user.setEnabled(true);
+            userRepository.save(user);
+            return "Email verified successfully. You can now log in.";
+        } else {
+            return "Invalid verification token.";
+        }
+    }*/
 }
